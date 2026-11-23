@@ -1,0 +1,4 @@
+class,throughput,jitter_ms,loss_pct,latency_ms
+VoIP,0.064,0.025,0,0.123
+Video,4.00,0.010,0,N/A
+Bulk TCP,4.57,N/A,N/A,N/A
