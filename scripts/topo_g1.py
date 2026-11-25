@@ -30,7 +30,7 @@ class G1Topo(Topo):
             self.addLink(host, s2, bw=100)
 
         self.addLink(g1, s1, intfName1='g1-eth0', bw=100)
-        link_bw = 5 if bottleneck else 100
+        link_bw = 10 if bottleneck else 100
         self.addLink(g1, s2, intfName1='g1-eth1', bw=link_bw)
 
 
