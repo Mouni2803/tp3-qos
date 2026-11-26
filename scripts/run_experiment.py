@@ -26,6 +26,7 @@ def parse_args():
     parser.add_argument("--runs", type=int, default=1)
     parser.add_argument("--duration", type=int, default=10)
     parser.add_argument("--qos-script", default=None)
+    parser.add_argument("--scenario", choices=("all", "realtime"), default="all")
     args = parser.parse_args()
 
     if args.condition == "qos" and not args.qos_script:
@@ -73,6 +74,8 @@ def main():
 
     os.makedirs(RESULTS, exist_ok=True)
     label = "%s_%druns_%ds" % (args.condition, args.runs, args.duration)
+    if args.scenario != "all":
+        label += "_" + args.scenario
     csv_path = os.path.join(RESULTS, label + ".csv")
     write_header = not os.path.exists(csv_path)
 
@@ -134,6 +137,9 @@ def main():
                          "-t", str(args.duration)]
                     ),
                 )
+
+                if args.scenario == "realtime":
+                    specs = specs[:2]
 
                 jobs = []
                 paths = {}
