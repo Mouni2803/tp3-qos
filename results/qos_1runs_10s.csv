@@ -1,0 +1,4 @@
+condition,run,flow,throughput_mbps,jitter_ms,loss_pct,tcp_retransmits
+qos,1,voip,0.064,0.045392472818383836,0,
+qos,1,video,3.9999,0.699151418315091,0,
+qos,1,bulk_tcp,5.5005,,,0
